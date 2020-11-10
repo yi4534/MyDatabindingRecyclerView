@@ -11,7 +11,7 @@ public class BaseViewModel {
 
     @BindingAdapter({"app:imgRes"})
     public static void setImageView(ImageView imageView, int res) {
-        imageView.setImageResource(res);
+//        imageView.setImageResource(res);
     }
     /**如果需要网络加载图片，可以自己加载Glide包*/
 //    @BindingAdapter({"app:imgUrl"})

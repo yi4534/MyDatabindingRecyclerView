@@ -24,6 +24,6 @@ public class MyAdapter2 extends BaseBindingAdapter<MyBean, AdapterLayoutBinding>
     @Override
     protected void onBindItem(AdapterLayoutBinding binding, MyBean bean, int position) {
         binding.setBean(bean);
-        binding.setViewModel(new MyViewModel(bean));
+        binding.setViewModel(new MyViewModel(bean, this));
     }
 }

@@ -59,7 +59,12 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="年龄：25"
             />
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="點擊"
+            android:onClick="@{()->viewModel.onClickBtn()}"
+            tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

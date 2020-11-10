@@ -1,6 +1,7 @@
 package com.linqinen708.mydatabinding.recyclerview.adapter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.linqinen708.mydatabinding.recyclerview.R;
 import com.linqinen708.mydatabinding.recyclerview.bean.MyBean;
@@ -32,6 +33,9 @@ public class MyAdapter extends BaseBindingAdapter<MyBean, AdapterLayoutBinding> 
         return R.layout.adapter_layout;
     }
 
+//    private final Map<Integer,MyViewModel> liViewModel = new HashMap<>();
+
+
     /**
      * 如果需要动态改动HeaderView，需要重写onBindViewHolder方法
      * super.onBindViewHolder(holder, position) 不要删掉
@@ -51,7 +55,15 @@ public class MyAdapter extends BaseBindingAdapter<MyBean, AdapterLayoutBinding> 
 
     @Override
     protected void onBindItem(AdapterLayoutBinding binding, MyBean bean, int position) {
+        Log.e("bawei", "onBindItem -- >" + bean.getName() + "   " + bean.toString());
         binding.setBean(bean);
-        binding.setViewModel(new MyViewModel(bean));
+        MyViewModel viewModel = new MyViewModel(bean, this);
+        binding.setViewModel(viewModel);
+
+
     }
+
+
+
+
 }
