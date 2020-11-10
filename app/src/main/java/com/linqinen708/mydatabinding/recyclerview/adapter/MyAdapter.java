@@ -22,7 +22,9 @@ public class MyAdapter extends BaseBindingAdapter<MyBean, AdapterLayoutBinding> 
         super(context);
     }
 
-    /**头部HeaderView，如果没有，则不用重写方法*/
+    /**
+     * 头部HeaderView，如果没有，则不用重写方法
+     */
     @Override
     protected int getHeaderViewLayoutResId() {
         return R.layout.adapter_head_view_layout;
@@ -55,15 +57,17 @@ public class MyAdapter extends BaseBindingAdapter<MyBean, AdapterLayoutBinding> 
 
     @Override
     protected void onBindItem(AdapterLayoutBinding binding, MyBean bean, int position) {
-        Log.e("bawei", "onBindItem -- >" + bean.getName() + "   " + bean.toString());
         binding.setBean(bean);
-        MyViewModel viewModel = new MyViewModel(bean, this);
-        binding.setViewModel(viewModel);
+        MyViewModel viewModel = binding.getViewModel();
+        if (viewModel == null) {
+            viewModel = new MyViewModel(bean, this);
+            binding.setViewModel(viewModel);
+        }
+
+        Log.e("bawei", "Bean-->" + bean.getName() + "  " + bean.toString() + "\nViewModel = " + viewModel.toString());
 
 
     }
-
-
 
 
 }
